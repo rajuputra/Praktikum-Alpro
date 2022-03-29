@@ -29,4 +29,36 @@ int main(){
 	cout << endl;
 	y:
 	cout << "Menu : \n";
-	
+//Bagian Tata
+	cout << "1. Pesan\n";
+	cout << "2. Keluar(Cetak struk)\n";
+	cout << "Pilihan : "; cin >>pil;
+	if (pil==1){
+		z:
+		cout << "Masukkan jumlah jenis barang yang ingin dipesan : "; cin >> b;
+		for (int i=0; i<b; i++){
+			cout << "Pesanan ke-"<<i+1<<" \t: "; cin >> c;
+			cout << "Porsi : ";  cin >> porsi[i];
+			cout << "Harga barang per satuan : "; cout << harga[c]<< endl;
+			nama[i] = makan[c];
+			bayar[i] = harga[c];
+			total[i]=porsi[i]*bayar[i];
+		}
+		cout << "Masukkan jarak rumah kamu (dalam KM) : "; cin >>jarak;
+		if (jarak <= 3){
+    		ongkir = 15000;
+		}
+    	else {
+    		ongkir = 25000;
+   		}
+		cout << "=======================================================================================\n";
+		cout << "Sudah selesai ?\n" ;
+		cout << "Tekan (Y) untuk kembali ke menu / Tekan (T) untuk mengulang memesan : " ;
+		cin >> d;
+		if ( d == 'Y'){
+			goto y;
+		}
+		else {
+			goto z;
+		}
+		
