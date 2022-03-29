@@ -61,4 +61,38 @@ int main(){
 		else {
 			goto z;
 		}
-		
+//Bagian Khulfani	
+	}
+	else if(pil==2){
+		cout << "Struk akan segera dicetak"	;
+		ofstream kasir;
+		kasir.open("struk.txt", ios::out);
+		kasir << "STRUK BELANJAAN ANDA\n";
+		kasir << "==============================\n";
+		for (int i=0; i<b; i++){	
+			kasir << nama[i]<<endl;
+			kasir << porsi[i] <<" x " << bayar[i] << " = " << total[i] << endl;
+			jumlah += total[i] ;
+		}
+		if (jumlah > 150000){
+			diskon= jumlah * 35/100;
+			diskonongkir = 8000;
+		}
+		else if (jumlah > 50000){
+			diskon= jumlah *15/100;
+			diskonongkir = 5000;
+		}
+		else {
+			diskonongkir = 3000;
+		}
+		kasir << "Ongkir : " << ongkir << endl;
+		kasir << "Diskon ongkir : " << diskonongkir << endl;
+		kasir << "==============================\n";
+		kasir << "\nTotal belanja : " << jumlah;
+		kasir << "\nDiskon harga : " << diskon;
+		kasir << "\nHarga Setelah Diskon : "<< jumlah-diskon;
+		kasir << "\nOngkir Setelah Diskon : " << ongkir-diskonongkir;
+		kasir.close();	
+	}
+	return 0;	
+}
